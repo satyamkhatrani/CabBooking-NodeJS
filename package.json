@@ -1,0 +1,29 @@
+{
+  "name": "cabbooking-nodejs",
+  "version": "1.0.0",
+  "description": "APIs for Cab Booking",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --experimental-modules --es-module-specifier-resolution=node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/satyamkhatrani/CabBooking-NodeJS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/satyamkhatrani/CabBooking-NodeJS/issues"
+  },
+  "homepage": "https://github.com/satyamkhatrani/CabBooking-NodeJS#readme",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "connect-mongodb-session": "^3.1.1",
+    "express": "^4.18.1",
+    "express-jwt": "^7.7.5",
+    "express-session": "^1.17.3",
+    "mongoose": "^6.5.3"
+  }
+}
