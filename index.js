@@ -5,6 +5,8 @@ import session from "express-session";
 import { default as connectMongoDBSession } from "connect-mongodb-session";
 import { expressjwt } from "express-jwt";
 import mongoose from "mongoose";
+import authRoutes from "./routes/auth";
+import appRoutes from "./routes/app";
 
 dotenv.config();
 
@@ -47,9 +49,12 @@ app.use(
 );
 
 app.get("/", (req, res) => {
-  //   console.log(process.env);
   res.json("Server is running");
 });
+
+// routes
+app.use(authRoutes);
+app.use(appRoutes);
 
 mongoose
   .connect(process.env.MONGODB_URI)

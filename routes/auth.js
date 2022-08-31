@@ -2,7 +2,7 @@ import { Router } from "express";
 import { body } from "express-validator";
 
 import Users from "../models/user";
-import isAuth from "../middleware/isAuth";
+import * as authController from "../controllers/auth";
 
 const authRoutes = Router();
 
@@ -35,5 +35,18 @@ authRoutes.post(
         throw new Error("Passwords have to match");
       }
       return true;
-    })
+    }),
+  authController.postRegister
 );
+
+authRoutes.post(
+  "/api/login",
+  body("email")
+    .isEmail()
+    .withMessage("Please Enter Valid Email address")
+    .normalizeEmail(),
+  body("password", "Password has to be valid.").isLength({ min: 5 }).trim(),
+  authController.postLogin
+);
+
+export default authRoutes;
