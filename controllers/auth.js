@@ -5,9 +5,7 @@ import Users from "../models/user";
 
 export const postRegister = (req, res, next) => {
   const email = req.body.email;
-  console.log("email: ", email);
   const password = req.body.password;
-  console.log("password: ", password);
 
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -24,7 +22,6 @@ export const postRegister = (req, res, next) => {
       return user.save();
     })
     .then((result) => {
-      console.log("result: ", result);
       res.status(200).send(result);
     })
     .catch((err) => {
