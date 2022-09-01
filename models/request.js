@@ -6,6 +6,7 @@ const requestSchema = new Schema(
   {
     rider_id: { type: Schema.ObjectId, require: true },
     driver_id: { type: Schema.ObjectId, require: true },
+    cab_id: { type: Schema.ObjectId, require: true },
     start_lat: { type: Number },
     start_long: { type: Number },
     end_lat: { type: Number },

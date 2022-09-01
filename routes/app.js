@@ -1,5 +1,4 @@
 import { Router } from "express";
-import { query } from "express-validator";
 import isAuth from "../middleware/isAuth";
 
 import * as appController from "../controllers/app";
