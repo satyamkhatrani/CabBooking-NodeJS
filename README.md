@@ -1,16 +1,7 @@
 <div id="top"></div>
-
-
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-
-<br />
 <div align="center">
   <a href="https://github.com/satyamkhatrani/CabBooking-NodeJS">
-    <img src="assets/img/car.webp" alt="Logo" width="80" height="80">
+    <img src="assets/img/car.png" alt="Logo" width="150" height="150">
   </a>
 
   <h3 align="center">Cab-Booking APIs</h3>
