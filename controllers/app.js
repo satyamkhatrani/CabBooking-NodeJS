@@ -1,8 +1,28 @@
 import Driver from "../models/driver";
 import { ObjectId } from "mongodb";
 import Requests from "../models/request";
+import Trips from "../models/trips";
+
 export const getBookings = (req, res, next) => {
-  res.status(200).send(req.auth.email);
+  const page = req.query.page ? (req.query.page > 0 ? req.query.page : 1) : 1;
+  const limit = req.query.perPage
+    ? req.query.perPage > 0
+      ? req.query.perPage
+      : 10
+    : 10;
+  const skip = (page - 1) * limit;
+  Trips.count({ rider_id: ObjectId(req.auth._id) })
+    .then((count) => {
+      Trips.find({ rider_id: ObjectId(req.auth._id) })
+        .skip(skip)
+        .limit(10)
+        .then((data) => {
+          res.json({ data: data, count: count });
+        });
+    })
+    .catch((err) => {
+      res.status(400).send(err);
+    });
 };
 
 export const rideRequest = (req, res, next) => {
